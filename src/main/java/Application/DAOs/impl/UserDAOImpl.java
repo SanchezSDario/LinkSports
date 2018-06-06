@@ -26,7 +26,7 @@ public class UserDAOImpl implements UserDAOCustom {
     @Override
     public List getFirstNamesLike(String firstName) {
         Query query = entityManager.createNativeQuery("SELECT * FROM linksports.user as user" +
-                "WHERE user.firstname LIKE ?", User.class);
+                "WHERE user.nombre LIKE ?", User.class);
         query.setParameter(1, firstName + "%");
         return query.getResultList();
     }
@@ -34,7 +34,7 @@ public class UserDAOImpl implements UserDAOCustom {
     @Override
     public Iterable<User> getUsersByLastName(String lastName) {
         Query query = entityManager.createNativeQuery("SELECT * FROM linksports.user as user" +
-                "WHERE user.lastName LIKE ?", User.class);
+                "WHERE user.apellido LIKE ?", User.class);
         query.setParameter(1, lastName + "%");
         return query.getResultList();
     }
@@ -42,7 +42,7 @@ public class UserDAOImpl implements UserDAOCustom {
     @Override
     public Iterable<User> getUsersByDeportesLike(String sport) {
         Query query = entityManager.createNativeQuery("SELECT * FROM linksports.user as user" +
-                "WHERE user.sport LIKE ?", User.class);
+                "WHERE user.deporte LIKE ?", User.class);
         query.setParameter(1, sport + "%");
         return query.getResultList();
     }
