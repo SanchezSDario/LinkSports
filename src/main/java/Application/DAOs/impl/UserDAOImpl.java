@@ -30,4 +30,20 @@ public class UserDAOImpl implements UserDAOCustom {
         query.setParameter(1, firstName + "%");
         return query.getResultList();
     }
+
+    @Override
+    public Iterable<User> getUsersByLastName(String lastName) {
+        Query query = entityManager.createNativeQuery("SELECT * FROM linksports.user as user" +
+                "WHERE user.lastName LIKE ?", User.class);
+        query.setParameter(1, lastName + "%");
+        return query.getResultList();
+    }
+
+    @Override
+    public Iterable<User> getUsersByDeportesLike(String sport) {
+        Query query = entityManager.createNativeQuery("SELECT * FROM linksports.user as user" +
+                "WHERE user.sport LIKE ?", User.class);
+        query.setParameter(1, sport + "%");
+        return query.getResultList();
+    }
 }
