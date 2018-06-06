@@ -32,7 +32,7 @@ public class UserDAOImpl implements UserDAOCustom {
     }
 
     @Override
-    public Iterable<User> getUsersByLastName(String lastName) {
+    public List getUsersByLastName(String lastName) {
         Query query = entityManager.createNativeQuery("SELECT * FROM linksports.user as user" +
                 "WHERE user.apellido LIKE ?", User.class);
         query.setParameter(1, lastName + "%");
@@ -40,7 +40,7 @@ public class UserDAOImpl implements UserDAOCustom {
     }
 
     @Override
-    public Iterable<User> getUsersByDeportesLike(String sport) {
+    public List getUsersByDeportesLike(String sport) {
         Query query = entityManager.createNativeQuery("SELECT * FROM linksports.user as user" +
                 "WHERE user.deporte LIKE ?", User.class);
         query.setParameter(1, sport + "%");

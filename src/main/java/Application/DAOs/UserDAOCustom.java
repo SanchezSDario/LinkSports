@@ -9,7 +9,7 @@ public interface UserDAOCustom {
     boolean checkLogin(User user);
     List getFirstNamesLike(String firstName);
 
-    Iterable<User> getUsersByDeportesLike(String sport);
+    List getUsersByDeportesLike(String sport);
 
-    Iterable<User> getUsersByLastName(String lastName);
+    List getUsersByLastName(String lastName);
 }
